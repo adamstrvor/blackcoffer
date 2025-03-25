@@ -15,7 +15,7 @@ def connect_to_db():
     host = input('|> Provide your MySQL server host: ').strip() or "localhost"
     port = input('|> Provide your MySQL server port: ').strip() or "3306"
     user = input('|> Provide your MySQL username: ').strip() or "root"
-    password = input('|> Provide your MySQL password: ').strip() or "Maliba2002"
+    password = input('|> Provide your MySQL password: ').strip() or "****"
     database = input('|> Provide the MySQL database name: ').strip() or "global_outlooks"
 
     try:

@@ -22,7 +22,7 @@ print("------------------------------------------")
 host = input('|> Provide your MySQL server host: ').strip() or "localhost"
 port = input('|> Provide your MySQL server port: ').strip() or "3306"
 user = input('|> Provide your MySQL username: ').strip() or "root"
-password = input('|> Provide your MySQL password: ').strip() or "Maliba2002"
+password = input('|> Provide your MySQL password: ').strip() or "****"
 database_name = input('|> Provide the MySQL database name: ').strip() or "global_outlooks"
 
 db_config = {
