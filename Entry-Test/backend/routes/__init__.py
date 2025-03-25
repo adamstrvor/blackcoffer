@@ -10,8 +10,12 @@ import sys
 import requests
 import re
 import mysql.connector
+from flask_cors import CORS
+import jwt
 
 api_bp = Blueprint('api', __name__)
+
+# CORS(api_bp)
 
 print("\n| MYSQL Server Connexion...")
 print("------------------------------------------")
@@ -91,22 +95,16 @@ def admin_login():
 	    if is_admin_table_empty():
 	        return jsonify({"message": "No admin found! Please create the first admin manually."}), 403
 
-	    print("C")
 	    # Fetch admin from DB
 	    cursor.execute("SELECT * FROM admin WHERE email = %s", (email,))
 	    admin = cursor.fetchone()
 
-	    print("D")
 
 	    if not admin or not bcrypt.checkpw(password.encode('utf-8'), admin["password_hash"].encode('utf-8')):
 	        return jsonify({" ": "Invalid email or password"}), 401
 
-	    print("E")
-
 	    # Generate JWT token
 	    access_token = create_access_token(identity=email)
-
-	    print("F")
 
 	    cursor.close()
 	    conn.close()
@@ -122,12 +120,29 @@ def admin_login():
 	        }
 	    }), 200
 	except Exception as e:
+		print(str(e))
 		return jsonify({"message": str(e)}), 500
 
 @api_bp.route('/get/industry_trends', methods=['GET'])
-@jwt_required()
+# @jwt_required()
 def get_data():
 	try:
+
+		JWT_SECRET_KEY = "ADAMS23"
+
+		auth_header = request.headers.get('Authorization')
+    
+		if not auth_header or not auth_header.startswith("Bearer "):
+			return jsonify({"error": "Missing or invalid token"}), 401
+
+		token = auth_header.split(" ")[1]  # Extract token after "Bearer "
+
+		try:
+			decoded_token = jwt.decode(token, JWT_SECRET_KEY, algorithms=["HS256"])
+		except jwt.ExpiredSignatureError:
+			return jsonify({"error": "Token expired"}), 401
+		except jwt.InvalidTokenError:
+			return jsonify({"error": "Invalid token"}), 401
 
 		print('|> Fetching data...')
 
@@ -137,8 +152,9 @@ def get_data():
 		data = cursor.fetchall()
 		cursor.close()
 		conn.close()
-		return jsonify(data)
+		return jsonify({ 'data': data}), 200
 	except Exception as e:
+		print(str(e))
 		return jsonify({"message": str(e)}), 500
 
 

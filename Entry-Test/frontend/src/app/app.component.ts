@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from './service/auth-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+
+  constructor(private authService: AuthService, private router: Router)
+  {
+    if(this.authService.isAuthenticated())
+    {
+      this.router.navigate(['/']);
+    }
+    else
+    {
+      this.router.navigate(['/login']);
+    }
+  }
+
 }

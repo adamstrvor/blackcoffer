@@ -1,0 +1,270 @@
+// -----------------------
+//	STYLES
+// -----------------------
+
+
+// |> CUSTOM SCROLL-BAR:
+// |--------------------
+
+	.SCROLL_LIST {
+	  overflow: auto;
+	  scrollbar-width: thin; /* For Firefox */
+	  scrollbar-color: #4caf50 #222; /* Change colors as needed */
+	}
+
+	/* Style the scrollbar track */
+	.SCROLL_LIST::-webkit-scrollbar {
+	  width: 2px; /* Set your desired width */
+	  height: 2px;
+	}
+
+	/* Style the scrollbar thumb */
+	.SCROLL_LIST::-webkit-scrollbar-thumb {
+	  background-color: #4caf50; /* Change the thumb color */
+	}
+
+	/* Style the scrollbar track for Firefox */
+	.SCROLL_LIST::-webkit-scrollbar-track {
+	  background-color: whitesmoke; /* Change the track color */
+	}
+
+
+// |> CONTAINER:
+// |--------------------
+
+	body
+	{
+		background-color: whitesmoke;
+		color: grey;
+	}
+
+	.container
+	{
+		padding: 10px;
+	}
+
+	.header
+	{
+		padding: 10px;
+		background-color: cornflowerblue;
+		color: white;
+		margin: 10px 0;
+		border-radius: 10px;
+	}
+
+	.sub-header
+	{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.title
+	{
+		font-size: 18px;
+		font-weight: bold;
+		padding: 10px;
+		border-radius: 10px;
+		background-color: white;
+		color: cornflowerblue;
+/*		box-shadow:  0px 0px 5px black;*/
+	}
+
+	.options
+	{
+		display: flex;
+	}
+
+	.options *
+	{
+		margin: 10px;
+	}
+
+
+
+.logout
+{
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 10px;
+/*	border: 2px solid red;*/
+	background-color: white;
+	color: red;
+}
+
+.logout:hover
+{
+	cursor: pointer;
+	background-color: red;
+	color: white;
+	border-color: white;
+/*	box-shadow: 0px 0px 3px black;*/
+}
+
+
+
+.NOTIF
+{
+	
+}
+
+
+.ERROR
+{
+	display: inline-block;
+	padding:10px;
+	border-radius: 10px;
+	border: 1px solid red;
+	color: red;
+	background-color: pink;
+	margin: 10px;
+	text-align: center;
+}
+
+.SUCCESS
+{
+	display: inline-block;
+	padding:10px;
+	border-radius: 10px;
+	border: 1px solid green;
+	color: green;
+	background-color: lightgreen;
+	text-align: center;
+	margin: 10px;
+}
+
+
+
+
+.dashboard {
+  padding: 20px;
+  background-color: whitesmoke;
+  color: grey;
+  border-radius: 10px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+select
+{
+	font-size: 16px;
+	color: black;
+	border-radius: 10px;
+}
+
+canvas {
+  width: 100%;
+  height: 400px !important;
+  border: 1px solid #ccc;
+  margin: 10px auto;
+  border-radius: 10px;
+  background-color: cornflowerblue;
+
+}
+
+
+
+.loading
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 150px;
+}
+
+.bounce
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 60px;
+	height: 60px;
+	transition: 0.2s;
+	border-radius: 100px;
+	border: 2px solid #ccc;
+	background-color: whitesmoke;
+}
+
+.round
+{
+	max-width: 100%;
+	max-height: 100%;
+	width: 50%;
+	height: 50%;
+	border-radius: 100px;
+	background-color: green;
+	animation-name: bounce;
+	animation-iteration-count: infinite;
+	animation-duration: 0.5s;
+	box-shadow: 0px 0px 5px black;
+}
+
+
+@keyframes bounce{
+		from{
+			box-shadow: 0px 0px 5px black;
+			background-color: green;
+			width: 50%;
+			height: 50%;
+		}
+
+		to{
+			box-shadow: 0px 0px 15px black;
+			background-color: red;
+			width: 70%;
+			height: 70%;
+		}
+}
+
+
+
+
+
+
+.over
+{
+	overflow: scroll;
+	max-height: 450px;
+}
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  border: 1px solid cornflowerblue;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #5AA454;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+
+
+
+
+
+
+
+

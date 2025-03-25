@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div class="container">
+	<div class="box">
+		<div class="logo"> DASHBOARD ACCESS</div>
+		<div class="ERROR" *ngIf="!isEmpty(errorMessage)">{{ errorMessage }}</div>
+		<div class="SUCCESS" *ngIf="!isEmpty(successMessage)">{{ successMessage }}</div>
+		<div class="loading" *ngIf="selfLoading"> <div class="bounce"> <div class="round"></div> </div> </div>
+		
+		<div class="form" *ngIf="!selfLoading">
+			<fieldset>
+				<legend *ngIf="!isEmpty(email)">Email</legend>
+				<input type="text" placeholder="Email" [(ngModel)]="email">
+			</fieldset>
+			<fieldset>
+				<legend *ngIf="!isEmpty(password)">Password</legend>
+				<input type="password" placeholder="Password" [(ngModel)]="password">
+			</fieldset>
+			<button (click)="login()">Log in</button>
+		</div>
+	</div>
+</div>
+

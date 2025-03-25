@@ -1,1 +1,115 @@
-<p>dashboard works!</p>
+<div class="container">
+
+	<div class="header">
+		<div class="sub-header">
+			<div class="title">DASHBOARD</div>
+			<div class="NOTIF">
+				<div class="ERROR" *ngIf="!isEmpty(errorMessage)"> {{errorMessage}} </div>
+				<div class="SUCCESS" *ngIf="!isEmpty(successMessage)"> {{successMessage}} </div>
+			</div>
+
+			<div class="logout" (click)="logout()">Logout</div>
+
+		</div>
+	</div>
+
+
+	
+
+
+
+
+<div class="dashboard">
+  <h1>Data Visualization</h1>
+
+  <!-- Filters -->
+  <div class="filters">
+    <label>End Year: 
+      <select [(ngModel)]="selectedYear" (change)="applyFilters()">
+        <option *ngFor="let year of uniqueYears" [value]="year">{{ year }}</option>
+      </select>
+    </label>
+    
+    <label>Sector: 
+      <select [(ngModel)]="selectedSector" (change)="applyFilters()">
+        <option *ngFor="let sector of uniqueSectors" [value]="sector">{{ sector }}</option>
+      </select>
+    </label>
+
+    <label>Country: 
+      <select [(ngModel)]="selectedCountry" (change)="applyFilters()">
+        <option *ngFor="let country of uniqueCountries" [value]="country">{{ country }}</option>
+      </select>
+    </label>
+  </div>
+</div>
+
+<div class="loading" *ngIf="selfLoading"> <div class="bounce"> <div class="round"></div> </div> </div>
+
+<div class="over" *ngIf="!selfLoading">
+	<table border="1">
+  <thead>
+    <tr>
+      <th>End Year</th>
+      <th>Intensity</th>
+      <th>Sector</th>
+      <th>Topic</th>
+      <th>Insight</th>
+      <th>URL</th>
+      <th>Region</th>
+      <th>Start Year</th>
+      <th>Impact</th>
+      <th>Added</th>
+      <th>Published</th>
+      <th>Country</th>
+      <th>Relevance</th>
+      <th>PESTLE</th>
+      <th>Source</th>
+      <th>Title</th>
+      <th>Likelihood</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of filteredData">
+      <td>{{ item.end_year }}</td>
+      <td>{{ item.intensity }}</td>
+      <td>{{ item.sector }}</td>
+      <td>{{ item.topic }}</td>
+      <td>{{ item.insight }}</td>
+      <td><a [href]="item.url" target="_blank">Link</a></td>
+      <td>{{ item.region }}</td>
+      <td>{{ item.start_year }}</td>
+      <td>{{ item.impact }}</td>
+      <td>{{ item.added }}</td>
+      <td>{{ item.published }}</td>
+      <td>{{ item.country }}</td>
+      <td>{{ item.relevance }}</td>
+      <td>{{ item.pestle }}</td>
+      <td>{{ item.source }}</td>
+      <td>{{ item.title }}</td>
+      <td>{{ item.likelihood }}</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+<br>
+<div class="results" *ngIf="!selfLoading">
+	<!-- Bar Chart -->
+	<canvas id="barChart"></canvas>
+
+	<!-- Pie Chart -->
+	<canvas id="pieChart"></canvas>
+
+	<!-- Line Chart -->
+	<canvas id="lineChart"></canvas>
+
+</div>
+
+
+
+
+
+
+</div>

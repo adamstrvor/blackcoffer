@@ -6,6 +6,7 @@ from flask import Flask, jsonify
 from flask_jwt_extended import JWTManager, create_access_token
 from routes import api_bp
 from  termcolor import colored
+from flask_cors import CORS
 
 #-----------------------------------------
 # INIT
@@ -19,6 +20,13 @@ host = input('|> Provide your API server host: ').strip() or "localhost"
 port = input('|> Provide your API server port: ').strip() or "5000"
 
 app = Flask(__name__)
+
+CORS(app, 
+     origins=["http://localhost:4200"],  # ✅ Autoriser seulement Angular
+     methods=["GET", "POST", "PUT", "DELETE"],  # ✅ Autoriser uniquement certaines méthodes
+     allow_headers=["Content-Type", "Authorization"],  # ✅ Autoriser certains headers
+     supports_credentials=True  # ✅ Autoriser les cookies/tokens
+)
 
 app.config["JWT_SECRET_KEY"] = "ADAMS23"
 jwt = JWTManager(app)

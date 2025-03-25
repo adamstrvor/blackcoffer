@@ -11,3 +11,7 @@ mysql-connector-python
 flask-mysql-connector
 bcrypt
 flask-jwt-extended
+flask-cors
+jwt
+pyjwt
+

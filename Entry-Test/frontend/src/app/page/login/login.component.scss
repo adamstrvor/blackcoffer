@@ -1,0 +1,283 @@
+// -----------------------
+//	GLOBAL VARIABLES
+// -----------------------
+$primary-color: black;
+$secondary-color: red;
+$primary-bg-color: white;
+$border-radius: 10px;
+
+$font-size-label:16px;
+$font-size-input:16px;
+$font-size-button:16px;
+$input-height:40px;
+$input-padding:0px;
+$fieldset-padding:5px;
+
+
+// -----------------------
+//	STYLES
+// -----------------------
+
+
+// |> CUSTOM SCROLL-BAR:
+// |--------------------
+
+	.SCROLL_LIST {
+	  overflow: auto;
+	  scrollbar-width: thin; /* For Firefox */
+	  scrollbar-color: #4caf50 #222; /* Change colors as needed */
+	}
+
+	/* Style the scrollbar track */
+	.SCROLL_LIST::-webkit-scrollbar {
+	  width: 2px; /* Set your desired width */
+	  height: 2px;
+	}
+
+	/* Style the scrollbar thumb */
+	.SCROLL_LIST::-webkit-scrollbar-thumb {
+	  background-color: #4caf50; /* Change the thumb color */
+	}
+
+	/* Style the scrollbar track for Firefox */
+	.SCROLL_LIST::-webkit-scrollbar-track {
+	  background-color: whitesmoke; /* Change the track color */
+	}
+
+
+// |> CONTAINER:
+// |--------------------
+	.container
+	{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: fixed;
+		top:0;
+		left:0;
+		width: 100%;
+		height: 100%;
+		background-color: whitesmoke;
+		color: grey;
+	}
+
+
+// |> BOX:
+// |--------------------
+	.box
+	{
+		margin: 20px;
+		width: 40%;
+		min-height: 40%;
+		max-height: 95%;
+		overflow: scroll;
+		border: 3px soid grey;
+		border-radius: $border-radius;
+		box-shadow: 0px 0px 5px black;
+		padding: 20px;
+		background-color: white;
+		color: grey;
+		animation-name: effect;
+		animation-iteration-count: infinite;
+		animation-duration: 1s;
+	}	
+
+	@media screen and (max-width:900px){
+		.box
+		{
+			width: 70%;
+			min-height: 50%;
+			overflow: scroll;
+		}
+	}
+
+	/*@keyframes effect{
+		from{
+			box-shadow: 0px 0px 5px black;
+		}
+
+		to{
+			box-shadow: 0px 0px 15px black;
+		}
+	}*/
+
+// |> BOX:
+// |--------------------
+
+	.logo
+	{
+		margin: 10px 0;
+		text-align: center;
+		font-weight: bold;
+		border: 2px solid cornflowerblue;
+		background-color: cornflowerblue;
+		color: white;
+		border-radius: $border-radius;
+		padding: 10px;
+	}
+
+	.logo img
+	{
+		margin: 5px;
+		display: block;
+	}
+
+
+// |> FIELDS:
+// |--------------------
+
+label,legend
+{
+	font-weight: bold;
+	font-size: $font-size-label;
+	transition: 0.5s;
+}
+
+
+fieldset, .input
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: $input-height;
+	border-radius: $border-radius;
+	border: 2px solid grey;
+	transition: 0.5s;
+	margin: 10px 0;
+	background-color:white;
+	color:grey;
+}
+
+fieldset
+{
+	padding: $fieldset-padding;
+}
+
+input, fieldset input, .input input
+{
+	border: 1px solid grey;
+	border-radius: $border-radius;
+	outline: none;
+	font-size: $font-size-input;
+	height: $input-height;
+	padding: $input-padding;
+}
+
+fieldset input, .input input
+{
+	border: none;
+	display: block;
+	width: 97%;
+	height: 90%;
+}
+
+fieldset input:focus, .input input:focus
+{
+	outline: none;
+}
+
+button
+{
+	display: inline-block;
+	font-size: $font-size-button;
+	font-weight: bold;
+	padding: 10px;
+	border-radius: $border-radius;
+	border: 2px solid cornflowerblue;
+	color: cornflowerblue;
+	background-color: white;
+	box-shadow: 0px 0px 2px black;
+	margin: 10px 0;
+	transition: 0.2s;
+}
+
+button:hover
+{
+	cursor: pointer;
+	box-shadow: 0px 0px 5px black;
+	color: white;
+	background-color: cornflowerblue;
+}
+
+
+.loading
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 150px;
+}
+
+.bounce
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 60px;
+	height: 60px;
+	transition: 0.2s;
+	border-radius: 100px;
+	border: 2px solid #ccc;
+	background-color: whitesmoke;
+}
+
+.round
+{
+	max-width: 100%;
+	max-height: 100%;
+	width: 50%;
+	height: 50%;
+	border-radius: 100px;
+	background-color: green;
+	animation-name: bounce;
+	animation-iteration-count: infinite;
+	animation-duration: 0.5s;
+	box-shadow: 0px 0px 5px black;
+}
+
+
+@keyframes bounce{
+		from{
+			box-shadow: 0px 0px 5px black;
+			background-color: green;
+			width: 50%;
+			height: 50%;
+		}
+
+		to{
+			box-shadow: 0px 0px 15px black;
+			background-color: red;
+			width: 70%;
+			height: 70%;
+		}
+}
+
+.ERROR
+{
+	padding:10px;
+	border-radius: $border-radius;
+	border: 1px solid red;
+	color: red;
+	background-color: pink;
+	margin: 10px 0;
+	text-align: center;
+}
+
+.SUCCESS
+{
+	padding:10px;
+	border-radius: $border-radius;
+	border: 1px solid green;
+	color: green;
+	background-color: lightgreen;
+	text-align: center;
+	margin: 10px 0;
+}
+
+
+
+
+
+
+
+
